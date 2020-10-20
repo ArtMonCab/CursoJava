@@ -23,6 +23,13 @@ public class Perro {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "Perro [nombre=" + nombre + ", raza=" + raza + ", peso=" + peso + ", isVacunado=" + isVacunado
+				+ ", historia=" + historia + "]";
+	}
+
+
 	//Otro constructor sobrecargado
 	///////////////////////////////////////
 	public Perro(String nombre) {
