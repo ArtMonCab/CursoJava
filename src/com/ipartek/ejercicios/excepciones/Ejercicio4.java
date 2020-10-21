@@ -27,7 +27,7 @@ public class Ejercicio4 {
 	public static void main(String[] args){
 
 		Scanner sc=new Scanner(System.in);
-		int contador = 1;
+		int contador = 0;
 		
 		// Lo que aparece entre <> se llama CASTEAR y sirve para indicar el tipo de Objetos que tenemos dentro del Array
 		ArrayList<Persona> personas = new ArrayList<Persona>();
@@ -40,17 +40,17 @@ public class Ejercicio4 {
 		do {
 			try {
 			
-				Persona p1 = new Persona();
+				Persona p = new Persona();
 				System.out.println("Introduce el nombre de la persona:");
-				p1.setNombre(sc.nextLine());
+				p.setNombre(sc.nextLine());
 			
 				System.out.println("Introduce la edad de la persona:");
-				p1.setEdad(Integer.parseInt(sc.nextLine()));
+				p.setEdad(Integer.parseInt(sc.nextLine()));
 				/*Persona p1 = new Persona();		
 				p1.setNombre("Pepe");
 				p1.setEdad(56);*/
 			
-				personas.add(p1);
+				personas.add(p);
 			
 				contador--;
 			
