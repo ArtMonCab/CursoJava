@@ -20,7 +20,7 @@ public class AppPerrera {
 	static final String OP_BAJA = "3";
 	static final String OP_MOSTRAR = "4";
 	static final String OP_MODIFICACION = "5";
-	static final String OP_SALIR = "S";
+	static final String OP_SALIR = "s";
 	
 	static final String OP_NOMBRE = "1";
 	static final String OP_RAZA = "2";
@@ -34,6 +34,7 @@ public class AppPerrera {
 		
 		System.out.println("***********  GESTION DE PERRERA   **************");
 		sc = new Scanner(System.in);
+		boolean salir = false;
 
 		inicializarDatos();
 		
@@ -41,8 +42,8 @@ public class AppPerrera {
 		do {
 			crearMenu();
 		
-			//switch (opcion.toUpperCase()) {   Se hace al final en el while
-			switch (opcion) {
+			switch (opcion.toUpperCase()) { 
+			//switch (opcion) {
 			case OP_LISTAR:
 				listar();
 				break;
@@ -61,13 +62,17 @@ public class AppPerrera {
 				modificacion();
 				break;
 			case OP_SALIR:
+				salir = true;
+				System.out.println("***********  Hasta luego, Lucasss   **************");
 				break;
 			default:
 				//TODO que no salga este mensaje cuando le doy a la opcion de salir.
-				System.out.println("Escoge una opcion correcta");
+				//if (!salir) {
+					System.out.println("Escoge una opcion correcta");
+				//}
 			}
-		//}while(salida);
-		}while(!OP_SALIR.equalsIgnoreCase(opcion));
+		}while(!salir);
+		//}while(!OP_SALIR.equalsIgnoreCase(opcion));
 		
 		/*
 		 * Mejor OP_SALIR.equalsIgnoreCase(opcion)); que opcion.equalsIgnoreCase(OP_SALIR));
@@ -75,7 +80,6 @@ public class AppPerrera {
 		 */
 		 
 		
-		System.out.println("***********  Hasta luego, Lucasss   **************");
 		sc.close();
 		
 	}// main

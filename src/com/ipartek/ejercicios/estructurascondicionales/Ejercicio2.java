@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Realiza un programa que pida un numero por consola. <br>
  * En caso de que el numero sea mayor que 50, o menor que 0, indicar que el numero introducido no es valido.
  * 
- * @author Arturo Montañez
+ * @author Arturo MontaÃ±ez
  *
  */
 
@@ -17,11 +17,11 @@ public class Ejercicio2 {
 	public static void main(String[] args) {
 		int numero = 0;
 		
-		System.out.println("Introduce un número: ");
+		System.out.println("Introduce un nÃºmero: ");
 		Scanner entrada = new Scanner(System.in);
 		
 		//numero = entrada.nextInt();
-		//nextLine es más aconsejable, aunque devuelve un String. Hay que convertirlo a integer.
+		//nextLine es mï¿½s aconsejable, aunque devuelve un String. Hay que convertirlo a integer.
 		numero = Integer.parseInt(entrada.nextLine());
 		
 		
