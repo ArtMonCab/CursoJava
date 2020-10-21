@@ -11,15 +11,24 @@ public class AppPerrera {
 	static Scanner sc = null;
 	static ArrayList<Perro> lista = new ArrayList<Perro>();
 	static String opcion = "";   // opcion seleccionada en el menu por el usuario
-	//static boolean salida = false;
 	
 	// constantes
+	
+	//TODO poner como private
 	static final String OP_LISTAR = "1";
 	static final String OP_ALTA = "2";
 	static final String OP_BAJA = "3";
 	static final String OP_MOSTRAR = "4";
 	static final String OP_MODIFICACION = "5";
 	static final String OP_SALIR = "S";
+	
+	static final String OP_NOMBRE = "1";
+	static final String OP_RAZA = "2";
+	static final String OP_PESO = "3";
+	static final String OP_VACUNACION = "4";
+	static final String OP_HISTORIA = "5";
+	
+	
 	public static void main(String[] args) {
 		
 		
@@ -32,37 +41,30 @@ public class AppPerrera {
 		do {
 			crearMenu();
 		
-			//TODO cambiar "1","2","3" etc  por constantes
 			//switch (opcion.toUpperCase()) {   Se hace al final en el while
 			switch (opcion) {
 			case OP_LISTAR:
 				listar();
 				break;
 			case OP_ALTA:
-			// TODO resto de opciones
 				alta();
 				break;	
 			case OP_BAJA:
-			// TODO resto de opciones
 				baja();
 				break;
 			case OP_MOSTRAR:
-			// TODO resto de opciones
 				System.out.println("Introduce el nombre del perro:");
 				String nombrePerro = sc.nextLine();
 				mostrar(nombrePerro);
 				break;
 			case OP_MODIFICACION:
-			// TODO resto de opciones
 				modificacion();
 				break;
 			case OP_SALIR:
-			// TODO resto de opciones
-				//System.out.println("Salir de la aplicación");
-				//salida = false;
 				break;
 			default:
-				System.out.println("Escoge una opción correcta");
+				//TODO que no salga este mensaje cuando le doy a la opcion de salir.
+				System.out.println("Escoge una opcion correcta");
 			}
 		//}while(salida);
 		}while(!OP_SALIR.equalsIgnoreCase(opcion));
@@ -98,7 +100,7 @@ public class AppPerrera {
 		
 		lista.add( new Perro("Scubby Doo") );
 		lista.add( new Perro("Niebla") );
-		lista.add( new Perro("Pequeño ayudante de Santa Claus") );
+		lista.add( new Perro("Pequeno ayudante de Santa Claus") );
 		lista.add( new Perro("Goofy") );
 		
 	}
@@ -116,7 +118,7 @@ public class AppPerrera {
 		System.out.println(" 2.- Alta de un perro");
 		System.out.println(" 3.- Baja de un perro");
 		System.out.println(" 4.- Mostrar datos de un perro");
-		System.out.println(" 5.- Modificación de datos de un perro");
+		System.out.println(" 5.- Modificacion de datos de un perro");
 		System.out.println(" ");
 		System.out.println(" S - Salir");
 		System.out.println("************************************");
@@ -128,7 +130,23 @@ public class AppPerrera {
 		
 	}
 	
-	//Añadir un perro
+	private static void crearMenuModificacion() {
+		
+		System.out.println("************************************");
+		System.out.println(" 1.- Modificar nombre");
+		System.out.println(" 2.- Modificar raza");
+		System.out.println(" 3.- Modificar peso");
+		System.out.println(" 4.- Modificar vacunacion");
+		System.out.println(" 5.- Modificar historia");
+		System.out.println(" ");
+		System.out.println(" S - Salir");
+		System.out.println("************************************");
+		
+		System.out.println("\n Selecciona una opcion del menu:");
+		opcion = sc.nextLine();
+		
+	}
+	//Aniadir un perro
 	private static void alta() {
 		Perro perro = new Perro();
 		System.out.println("Introduce el nombre del nuevo perro:");
@@ -141,9 +159,9 @@ public class AppPerrera {
 		perro.setPeso(Float.parseFloat(sc.nextLine()));
 		
 		//TODO controlar que meta "S" o "N"
-		System.out.println("¿El perro está vacunado (s/n)?:");
-		//perro.setVacunado(sc.nextLine());
+		System.out.println("El perro esta vacunado (s/n)?:");
 		perro.setVacunado(Boolean.parseBoolean(sc.nextLine()));
+		
 		System.out.println("Introduce la historia del nuevo perro:");
 		perro.setHistoria(sc.nextLine());
 		
@@ -153,10 +171,11 @@ public class AppPerrera {
 	}
 	
 	//Borrar un perro
-	//TODO baja
 	private static void baja() {
-		//TODO poder elegir entre dar de baja por nombre o por posición dentro de la lista
+		//TODO poder elegir entre dar de baja por nombre o por posicion dentro de la lista
 		String nombrePerro = " ";
+		String borrar = "S";
+		
 		System.out.println("Introduce el nombre del perro que desea dar de baja");
 		nombrePerro = sc.nextLine();
 		
@@ -164,13 +183,23 @@ public class AppPerrera {
 		//Para borrar un perro de la lista
 		for (int i = 0; i < lista.size() ; i++) {
 			
-			Perro pIteracion = lista.get(i);
+			Perro perro = lista.get(i);
 			
-			if ( nombrePerro.equals(pIteracion.getNombre()) ) {
-				System.out.println("Datos del perro");
-				System.out.println("===============");
-				mostrar(nombrePerro);
-				lista.remove(i);
+			if ( nombrePerro.equals(perro.getNombre()) ) {
+				System.out.println("Datos del perro que desea dar de baja");
+				System.out.println("=====================================");
+				System.out.println( String.format("%s [%s]  %s Kg", perro.getNombre(), perro.getRaza(), perro.getPeso()  ));
+				System.out.println(" ");
+				
+				//Pido confirmacion de la baja
+				do {
+					System.out.println("Esta seguro de que quiere dar de baja a " + nombrePerro + " ? (S/N)");
+					borrar = sc.nextLine();
+				}while((!borrar.equalsIgnoreCase("s")) && (!borrar.equalsIgnoreCase("n")));
+				
+				if (borrar.equalsIgnoreCase("s")){
+					lista.remove(i);
+				}
 				break; // salir del for
 			}
 			
@@ -179,16 +208,65 @@ public class AppPerrera {
 	}
 	
 	//Mostrar los datos de un perro
-	//TODO mostrar
-	private static void mostrar(String nombre) {
-		System.out.println("El nombre del perro es " + nombre);
+	private static boolean mostrar(String nombre) {
+		
+		boolean existe = false;
+		int i = 0;
+		do {
+			Perro perro = lista.get(i);
+			
+			if (perro.getNombre().equalsIgnoreCase(nombre)) {
+				System.out.println( String.format("%31s [%s]  %s Kg", perro.getNombre(), perro.getRaza(), perro.getPeso()  ));
+				existe = true;
+				//return true;
+			}
+			i++;
+		}while((!existe) && ( i < lista.size()));
+		
+		if (!existe) {
+			System.out.println ("No tenemos datos de ese perro");
+			//return false;
+		}
+		
+		return existe;
 	}	
 	
 	
 	//Modificar los datos de un perro
 	//TODO modificacion
 	private static void modificacion() {
-		System.out.println("Modificación de un perro");
+		System.out.println("Introduce el nombre del perro que desea modificar:");
+		String nombrePerro = sc.nextLine();
+		if(mostrar(nombrePerro)) {
+			
+			do {
+				crearMenuModificacion();
+			
+				switch (opcion) {
+				case OP_NOMBRE:
+					System.out.println("Modificar nombre");
+					break;
+				case OP_RAZA:
+					System.out.println("Modificar raza");
+					break;	
+				case OP_PESO:
+					System.out.println("Modificar peso");
+					break;
+				case OP_VACUNACION:
+					System.out.println("Modificar vacunacion");
+					break;
+				case OP_HISTORIA:
+					System.out.println("Modificar historia");
+					break;
+				case OP_SALIR:
+					crearMenu();
+					break;
+				default:
+					//TODO que no salga este mensaje cuando le doy a la opcion de salir.
+					System.out.println("Escoge una opcion correcta");
+				}
+			}while(!OP_SALIR.equalsIgnoreCase(opcion));
+		}
 	}
 
 }// AppPerrera

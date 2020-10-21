@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Ejercicio para aprender los metodos básicos de java.util.ArrayList
+ * Ejercicio para aprender los metodos basicos de java.util.ArrayList
  * @author ur00
  *
  */

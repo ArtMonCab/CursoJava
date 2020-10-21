@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" additionalparam=" -encoding utf8 -docencoding utf8 -charset utf8&#13;&#10;&#13;&#10;" author="true" classpath="." destdir="doc" doctitle="Curso Java" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="com.ipartek.ejercicios.colecciones,com.ipartek.ejercicios.excepciones,com.ipartek.pojo.ejercicios,com.ipartek,com.ipartek.pojo,com.ipartek.ejercicios.estructurascondicionales,com.ipartek.apps,com.ipartek.ejercicios.variablesyoperadores" source="1.8" sourcepath="src" splitindex="true" use="true" version="true">
+            <link href="file:/C:/Users/amont/eclipse-workspace/Ejercicios/doc/"/>
+        </javadoc>
+    </target>
+</project>
