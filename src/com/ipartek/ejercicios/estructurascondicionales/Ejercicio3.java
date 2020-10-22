@@ -25,7 +25,7 @@ public class Ejercicio3 {
 		char opcion;
 		
 		System.out.println("Introduce una distancia en centimetros:");
-		distancia = Integer.parseInt(sc.nextLine());
+		distancia = Float.parseFloat(sc.nextLine());
 		
 		do {
 			System.out.println("Elija una opción de conversion");

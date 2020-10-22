@@ -20,7 +20,7 @@ public class AppPerrera {
 	static final String OP_BAJA = "3";
 	static final String OP_MOSTRAR = "4";
 	static final String OP_MODIFICACION = "5";
-	static final String OP_SALIR = "s";
+	static final String OP_SALIR = "S";
 	
 	static final String OP_NOMBRE = "1";
 	static final String OP_RAZA = "2";

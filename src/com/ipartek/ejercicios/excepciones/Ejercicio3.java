@@ -45,7 +45,7 @@ public class Ejercicio3 {
 			}
 		}while (isError);
 		
-		
+		sc.close();
 		
 	}
 
