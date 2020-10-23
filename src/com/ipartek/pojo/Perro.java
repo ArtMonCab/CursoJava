@@ -1,17 +1,18 @@
 package com.ipartek.pojo;
 
 public class Perro {
-
+	
 	// Atributos, deben ser siempre privados
 	// la forma de manipular estos atributos es a traves de los getteres y settres
 	///////////////////////////////////////
+	private int id;  //TODO getter setreers y contructor toString
 	private String nombre;
 	private String raza;
 	private float peso;
 	private boolean isVacunado;
 	private String historia;
 	
-	// Constructor
+	// Constructores
 	///////////////////////////////////////
 	public Perro() {
 		super();
@@ -19,26 +20,29 @@ public class Perro {
 		this.raza = "Cruce";
 		this.peso = 0f;
 		this.isVacunado = false;
-		this.historia = "Es un hijo de perra";
+		this.historia = "Erase una vez....";
 	}
 	
+	// otro constructor sobrecargado
 	
-	@Override
-	public String toString() {
-		return "Perro [nombre=" + nombre + ", raza=" + raza + ", peso=" + peso + ", isVacunado=" + isVacunado
-				+ ", historia=" + historia + "]";
-	}
-
-
-	//Otro constructor sobrecargado
-	///////////////////////////////////////
 	public Perro(String nombre) {
-		this();
+		this(); // llama al constructor por defecto, pulsar Control + click
 		this.nombre = nombre;
 	}
+	
+	public Perro(String nombre, String raza, float peso) {
+		this();  // Cuidado no poner super
+		this.nombre = nombre;
+		this.raza = raza;
+		this.peso = peso;
+	}
+	
+	
 	//Getters y setters
 	///////////////////////////////////////
 	
+
+
 
 	public String getNombre() {
 		return nombre;
@@ -75,19 +79,21 @@ public class Perro {
 	public void setVacunado(boolean isVacunado) {
 		this.isVacunado = isVacunado;
 	}
-	
-	
+
+	public String getHistoria() {
+		return historia;
+	}
+
 	public void setHistoria(String historia) {
 		this.historia = historia;
 	}
-	
-	public String getHistoria() {
-		return (historia);
+
+	@Override
+	public String toString() {
+		return "Perro [nombre=" + nombre + ", raza=" + raza + ", peso=" + peso + ", isVacunado=" + isVacunado
+				+ ", historia=" + historia + "]";
 	}
 	
-	
-
-	
-	
+	// Otros metodos
 	
 }

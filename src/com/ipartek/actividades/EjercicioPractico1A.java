@@ -21,14 +21,14 @@ public class EjercicioPractico1A {
 		Scanner sc = new Scanner(System.in);
 		int i = 0;
 		boolean correcto = false;
-		float sumaNotas = 0;
-		float notaMaxima = 0;
+		double sumaNotas = 0;
+		double notaMaxima = 0;
 		//Lo inicializo a 10 para asegurarme que al comparar la nota sea la minima.
-		float notaMinima = 10;
-		float notas[];
+		double notaMinima = 10;
+		double notas[];
 		
 		//Creo el Array
-		notas = new float[5];
+		notas = new double[5];
 		
 		//Introduzco las 5 notas
 		do {
@@ -37,7 +37,7 @@ public class EjercicioPractico1A {
 			//Compruebo que cada nota introducida sea la correcta;
 			do {
 				try {
-					notas[i] = Float.parseFloat(sc.nextLine());
+					notas[i] = Double.parseDouble(sc.nextLine());
 					
 					//Compruebo que la nota está entre 0 y 10
 					if ((notas[i] < 0) || (notas[i] > 10)){
