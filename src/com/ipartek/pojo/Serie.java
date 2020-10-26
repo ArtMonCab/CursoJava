@@ -19,23 +19,58 @@ package com.ipartek.pojo;
  */
 public class Serie {
 	
-	// Atributos, deben ser siempre privados
-	// la forma de manipular estos atributos es a traves de los getteres y settres
-	///////////////////////////////////////
-	private int id;  //TODO getter setreers y contructor toString
 	private String nombre;
 	private int numTemporadas;
-	private int duracion;
+	private int duracion; //min
 	private String plataforma;
 	
-	// Constructores
-	///////////////////////////////////////
-	public Serie() {
-		super();
-		this.nombre = "Sin nombre";
-		this.numTemporadas = 1;
-		this.duracion = 45;
-		this.plataforma = "Ninguno";
+	public Serie(String nombre) {
+		super();  // llamamos al constructor del padre que es java.lnag.Object		
+		this.nombre = nombre;
+		this.numTemporadas = 0;
+		this.duracion = 0;
+		this.plataforma = "internet";
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getNumTemporadas() {
+		return numTemporadas;
+	}
+
+	public void setNumTemporadas(int numTemporadas) {
+		this.numTemporadas = numTemporadas;
+	}
+
+	public int getDuracion() {
+		return duracion;
+	}
+
+	public void setDuracion(int duracion) {
+		this.duracion = duracion;
+	}
+
+	public String getPlataforma() {
+		return plataforma;
+	}
+
+	public void setPlataforma(String plataforma) {
+		this.plataforma = plataforma;
+	}
+
+	@Override
+	public String toString() {
+		return "Serie [nombre=" + nombre + ", numTemporadas=" + numTemporadas + ", duracion=" + duracion
+				+ ", plataforma=" + plataforma + "]";
+	}
+
+	
+	
 
 }
