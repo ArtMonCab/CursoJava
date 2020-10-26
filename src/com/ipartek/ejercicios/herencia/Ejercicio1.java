@@ -3,6 +3,7 @@ package com.ipartek.ejercicios.herencia;
 import java.util.ArrayList;
 import java.util.Scanner;
 import com.ipartek.pojo.Electrodomestico;
+import com.ipartek.pojo.Jugador;
 import com.ipartek.pojo.Televisor;
 import com.ipartek.pojo.TelevisorPlano;
 
@@ -32,6 +33,31 @@ public class Ejercicio1 {
 	
 	public static void main(String[] args) {
 		
+		Scanner sc = new Scanner(System.in);
+		ArrayList<TelevisorPlano> listaTelevisoresPlanos = new ArrayList<TelevisorPlano>();
+
+		for (int i = 0; i < 5; i++) {
+			TelevisorPlano telePlana = new TelevisorPlano();
+			
+			System.out.println("Introduzca el nombre del televisor "+ (i+1) + " :");
+			telePlana.setNombre(sc.nextLine());
+			
+			System.out.println("Introduzca el precio del televisor "+ (i+1) + " :");
+			telePlana.setPrecio(Integer.parseInt(sc.nextLine()));
+			
+			System.out.println("Introduzca el tamaño del televisor "+ (i+1) + " :");
+			telePlana.setPulgadas(Integer.parseInt(sc.nextLine()));
+			
+			System.out.println("Introduzca el tipo de pantalla del televisor "+ (i+1) + " :");
+			telePlana.setTipoPantalla(sc.nextLine());
+			
+			
+			listaTelevisoresPlanos.add(telePlana);
+			System.out.println("---------------------------------------------------");
+			
+		}
+		
+		System.out.println(listaTelevisoresPlanos);
 	}
 
 }
