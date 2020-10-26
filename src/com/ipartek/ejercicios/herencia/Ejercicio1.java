@@ -34,7 +34,8 @@ public class Ejercicio1 {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		ArrayList<TelevisorPlano> listaTelevisoresPlanos = new ArrayList<TelevisorPlano>();
+		//Si pongo tipo Electrodomestico, puedo meter cualquier objeto de clase heredada.
+		ArrayList<Electrodomestico> listaTelevisoresPlanos = new ArrayList<Electrodomestico>();
 
 		for (int i = 0; i < 5; i++) {
 			TelevisorPlano telePlana = new TelevisorPlano();

@@ -4,6 +4,7 @@ public class Televisor extends Electrodomestico {
 	
 	private int pulgadas;
 	
+
 	public Televisor() {
 		super();
 		this.pulgadas = pulgadas;
@@ -27,11 +28,12 @@ public class Televisor extends Electrodomestico {
 		this.pulgadas = pulgadas;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Televisor [pulgadas=" + pulgadas + "]";
+		return "Televisor [pulgadas=" + pulgadas + ", getNombre()=" + getNombre() + ", getPrecio()=" + getPrecio()
+				+ "]";
 	}
+
 	
 	
 	

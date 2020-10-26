@@ -23,11 +23,14 @@ public class TelevisorPlano extends Televisor {
 		this.tipoPantalla = tipoPantalla;
 	}
 
-
 	@Override
 	public String toString() {
-		return "TelevisorPlano [tipoPantalla=" + tipoPantalla + "]";
+		return "TelevisorPlano [tipoPantalla=" + tipoPantalla + ", getPulgadas()=" + getPulgadas() + ", getNombre()="
+				+ getNombre() + ", getPrecio()=" + getPrecio() + "]";
 	}
+
+
+
 
 
 
