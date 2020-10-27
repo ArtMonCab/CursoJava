@@ -37,7 +37,7 @@ public class Ejercicio2 {
 	private static void insertarJugadores() {
 		
 		Scanner sc = new Scanner(System.in);
-		
+		int i = 0;
 		char continuar = 'S';
 		
 		do {
@@ -49,9 +49,11 @@ public class Ejercicio2 {
 			
 			System.out.println("-----------------------------------");
 			do {
-				System.out.println("¿Desea introducir otro jugador (S/N)");
-				//continuar = 
+				System.out.println("¿Desea introducir otro jugador (S/N)"); 
+				continuar = Character.toUpperCase(sc.nextLine().charAt(0));
 			}while ((continuar != 'S') && (continuar != 'N'));
+			
+			i++;
 			
 		}while (continuar != 'N');
 		

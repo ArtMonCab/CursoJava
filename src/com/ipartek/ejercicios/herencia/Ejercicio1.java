@@ -35,7 +35,7 @@ public class Ejercicio1 {
 		
 		Scanner sc = new Scanner(System.in);
 		//Si pongo tipo Electrodomestico, puedo meter cualquier objeto de clase heredada.
-		ArrayList<Electrodomestico> listaTelevisoresPlanos = new ArrayList<Electrodomestico>();
+		ArrayList<Electrodomestico> lista = new ArrayList<Electrodomestico>();
 
 		for (int i = 0; i < 5; i++) {
 			TelevisorPlano telePlana = new TelevisorPlano();
@@ -53,12 +53,38 @@ public class Ejercicio1 {
 			telePlana.setTipoPantalla(sc.nextLine());
 			
 			
-			listaTelevisoresPlanos.add(telePlana);
+			lista.add(telePlana);
 			System.out.println("---------------------------------------------------");
 			
 		}
 		
-		System.out.println(listaTelevisoresPlanos);
+		for ( Electrodomestico elec : lista) {
+			
+			// En vez de usar syso, castear y mostrar datos con getters
+			// System.out.println(elec.toString());
+			
+			// CUIDADO con la Exception, hay que preguntar siempre con instanceof, descomentar la linea de abajo y probar
+			// TelevisionPlana ttt = (TelevisionPlana)elec1;
+										
+			System.out.printf("Nombre: %s \n", elec.getNombre());
+			System.out.printf("Precio: %s \n", elec.getPrecio());				
+			
+						
+			if ( elec instanceof Televisor ) {				
+				Televisor tv = (Televisor)elec;
+				System.out.printf("Pulgadas: %s \n", tv.getPulgadas());				
+			}
+			
+			if ( elec instanceof TelevisorPlano ) {					
+				TelevisorPlano tvp = (TelevisorPlano)elec;
+				System.out.printf("Tipo pantalla %s \n" ,tvp.getTipoPantalla() );				
+			}
+			
+			System.out.println("------------------------------------------------------");
+			
+			
+		}// for
+		System.out.println("Salimos");
 	}
 
 }

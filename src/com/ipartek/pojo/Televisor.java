@@ -7,12 +7,6 @@ public class Televisor extends Electrodomestico {
 
 	public Televisor() {
 		super();
-		this.pulgadas = pulgadas;
-	}
-
-	public Televisor(String nombre, int precio) {
-		super(nombre,precio);
-		this.pulgadas = pulgadas;
 	}
 
 	public Televisor(String nombre, int precio, int pulgadas) {

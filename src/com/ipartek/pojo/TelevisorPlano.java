@@ -6,7 +6,7 @@ public class TelevisorPlano extends Televisor {
 	
 	public TelevisorPlano() {
 		super();
-		this.tipoPantalla = tipoPantalla;
+		this.tipoPantalla = "TFT";
 	}
 	
 	public TelevisorPlano(String nombre, int precio, int pulgadas, String tipoPantalla) {
