@@ -1,4 +1,4 @@
-package com.ipartek.listas1;
+package com.ipartek.ejercicios.listas;
 
 import java.util.ArrayList;
 
