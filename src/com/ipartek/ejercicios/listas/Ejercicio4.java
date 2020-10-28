@@ -7,11 +7,10 @@ import java.util.Scanner;
 
 public class Ejercicio4 {
 	
-	static final String PALOS_NOMBRES[] = {"bastos","copas","espadas","oros"};
-	static final String CARTAS_NOMBRES[] = {"as","dos","tres","cuatro","cinco","seis","siete","sota","caballo","rey"}; 
+	static final String PALOS_NOMBRES[] = {"Bastos","Copas","Espadas","Oros"};
+	static final String CARTAS_NOMBRES[] = {"As","Dos","Tres","Cuatro","Cinco","Seis","Siete","Sota","Caballo","Rey"}; 
 
-	static ArrayList<Carta> listaCartasSinBarajar = new ArrayList<Carta>();
-	static ArrayList<Carta> listaCartasBarajadas = new ArrayList<Carta>();
+	static ArrayList<Carta> listaCartas = new ArrayList<Carta>();
 	
 	
 	
@@ -22,50 +21,50 @@ public class Ejercicio4 {
 
 		crearBaraja();
 		
-		mezclarBaraja();
+		barajar();
 		
 		
 	}
 
 
 
-	private static void mezclarBaraja() {
-		// TODO Auto-generated method stub
+	private static void barajar() {
 		
-		boolean centinela = true;
-		int max = listaCartasSinBarajar.size() - 1;
 		int i = 0;
-		
-		listaCartasBarajadas.clear();
+		int contador = 0;
+		Carta carta = new Carta();
 		
 		do {
-			i = (int) Math.floor(Math.random()*(0-max+1)+max);
-			//listaCartasBarajadas.add(listaCartasSinBarajar.get(i));
+			i = (int) Math.floor(Math.random()*(0-(listaCartas.size())+1)+(listaCartas.size()));
 			
-			try{
-				listaCartasSinBarajar.remove(i-1);
-			}catch (Exception e){
+			carta = listaCartas.get(i-1);
+			contador++;
+			System.out.println("Carta " + contador + " : " + CARTAS_NOMBRES[carta.getNumero()] + " de " + carta.getPalo());
+			listaCartas.remove(i-1);
 				
-				System.out.println(i + " - " + );System.out.println("Final");
-			}
 			
-		}while (!listaCartasSinBarajar.isEmpty());
+		}while (!listaCartas.isEmpty());
 		
 		System.out.println("Final");
 	}
 
+	
+	
 	private static void crearBaraja() {
 		// TODO Auto-generated method stub
 		
 		for (int palo = 0 ; palo < PALOS_NOMBRES.length ; palo++) {
 			
+			System.out.println(PALOS_NOMBRES[palo]);
+			System.out.println( "-----------------");
 			for (int numero = 0 ; numero < CARTAS_NOMBRES.length ; numero ++) {
 				Carta carta = new Carta(numero, PALOS_NOMBRES[palo]);
 				
-				listaCartasSinBarajar.add(carta);
+				listaCartas.add(carta);
 				System.out.println(CARTAS_NOMBRES[numero] + " de " + PALOS_NOMBRES[palo]);
 			}
-			System.out.println( "----------------------------------------------------");
+			System.out.println( "=======================================================");
+			System.out.println( " ");
 			
 			
 			
