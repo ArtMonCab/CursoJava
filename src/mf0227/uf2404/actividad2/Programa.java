@@ -12,6 +12,12 @@ package mf0227.uf2404.actividad2;
  * Una vez que no queramos introducir más coches, nos mostrara todo el contenido en pantalla.<br>
  * 
  * @author Arturo Montañez Cabanillas
+ * 
+ * @version 2.0
+ * 
+ * Añado controles para que cuando meta la matricula, la marca, el modelo y el  color.<br>
+ * Los controles para la potencia y la cilindrada ya estaba hechos en la versión 1.0<br>
+ * no se puedan meter un valor blanco o nulo.																																																				
  */
 
 import java.util.ArrayList;
@@ -48,6 +54,7 @@ public class Programa {
 			Coche coche = new Coche();
 
 			//Matricula
+			//Para controlar que no se meta un dato vacio
 			do {
 				System.out.println("Introducir la matricula del coche: ");
 				dato = sc.nextLine();
@@ -58,20 +65,50 @@ public class Programa {
 					repetir = false;
 				}
 			}while (repetir);
-
 			coche.setMatricula(dato);
 			
 			//Marca
-			System.out.println("Introducir la marca del coche: ");
-			coche.setMarca(sc.nextLine());
+			//Para controlar que no se meta un dato vacio
+			do {
+				System.out.println("Introducir la marca del coche: ");
+				dato = sc.nextLine();
+				if ((dato.isEmpty()) || (dato.equals(" "))) {
+					System.out.println("No se puede introducir una marca vacia");
+					repetir = true;
+				}else {
+					repetir = false;
+				}
+			}while (repetir);
+			coche.setMarca(dato);
 			
 			//Modelo
-			System.out.println("Introducir el modelo del coche: ");
-			coche.setModelo(sc.nextLine());
+			//Para controlar que no se meta un dato vacio
+			do {
+				System.out.println("Introducir el modelo del coche: ");
+				dato = sc.nextLine();
+				if ((dato.isEmpty()) || (dato.equals(" "))) {
+					System.out.println("No se puede introducir un modelo vacio");
+					repetir = true;
+				}else {
+					repetir = false;
+				}
+			}while (repetir);
+			coche.setModelo(dato);
+			
 			
 			//Color
-			System.out.println("Introducir el color del coche: ");
-			coche.setColor(sc.nextLine());
+			//Para controlar que no se meta un dato vacio
+			do {
+				System.out.println("Introducir el color del coche: ");
+				dato = sc.nextLine();
+				if ((dato.isEmpty()) || (dato.equals(" "))) {
+					System.out.println("No se puede introducir un color vacio");
+					repetir = true;
+				}else {
+					repetir = false;
+				}
+			}while (repetir);
+			coche.setColor(dato);
 			
 			do {
 				try {
@@ -146,55 +183,57 @@ public class Programa {
 	
 	private static void inicializarListaCoches() {
 		
-		Coche buga1 = new Coche();
+		Coche buga = new Coche();
 
-		buga1.setMatricula("8669 GNC");
+		buga.setMatricula("8669 GNC");
 	
-		buga1.setMarca("Subaru");
+		buga.setMarca("Subaru");
 		
-		buga1.setModelo("Legacy");
+		buga.setModelo("Legacy");
 		
-		buga1.setColor("Gris");
+		buga.setColor("Gris");
 		
-		buga1.setPotencia(150);
+		buga.setPotencia(150);
 		
-		buga1.setCilindrada(2000);
+		buga.setCilindrada(2000);
 		
-		listaCoches.add(buga1);
+		listaCoches.add(buga);
+		
+		buga = new Coche();
 		
 		
-		Coche buga2 = new Coche();
+		buga = new Coche();
 		
-		buga2.setMatricula("6666 DFG");
+		buga.setMatricula("6666 DFG");
 	
-		buga2.setMarca("Seat");
+		buga.setMarca("Seat");
 		
-		buga2.setModelo("Ibiza");
+		buga.setModelo("Ibiza");
 		
-		buga2.setColor("Blanco");
+		buga.setColor("Blanco");
 		
-		buga2.setPotencia(110);
+		buga.setPotencia(110);
 		
-		buga2.setCilindrada(1000);
+		buga.setCilindrada(1000);
 		
-		listaCoches.add(buga2);	
+		listaCoches.add(buga);	
 		
 
-		Coche buga3 = new Coche();
+		buga = new Coche();
 		
-		buga3.setMatricula("BI 3456 CC");
+		buga.setMatricula("BI 3456 CC");
 	
-		buga3.setMarca("Lancia");
+		buga.setMarca("Lancia");
 		
-		buga3.setModelo("Delta");
+		buga.setModelo("Delta");
 		
-		buga3.setColor("Rojo");
+		buga.setColor("Rojo");
 		
-		buga3.setPotencia(300);
+		buga.setPotencia(300);
 		
-		buga3.setCilindrada(2000);
+		buga.setCilindrada(2000);
 		
-		listaCoches.add(buga3);
+		listaCoches.add(buga);
 		
 	}
 	
