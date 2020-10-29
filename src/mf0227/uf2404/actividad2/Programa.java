@@ -48,8 +48,18 @@ public class Programa {
 			Coche coche = new Coche();
 
 			//Matricula
-			System.out.println("Introducir la matricula del coche: ");
-			coche.setMatricula(sc.nextLine());
+			do {
+				System.out.println("Introducir la matricula del coche: ");
+				dato = sc.nextLine();
+				if ((dato.isEmpty()) || (dato.equals(" "))) {
+					System.out.println("No se puede introducir una matricula vacia");
+					repetir = true;
+				}else {
+					repetir = false;
+				}
+			}while (repetir);
+
+			coche.setMatricula(dato);
 			
 			//Marca
 			System.out.println("Introducir la marca del coche: ");
