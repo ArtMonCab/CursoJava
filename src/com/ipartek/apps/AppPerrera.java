@@ -2,6 +2,9 @@ package com.ipartek.apps;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.ipartek.modelo.PerroDAOSqlite;
+//import com.ipartek.modelo.PerroDao;
 import com.ipartek.pojo.Perro;
 
 public class AppPerrera {
@@ -9,7 +12,8 @@ public class AppPerrera {
 	// variables globales para esta Clase
 	//Las variabes estaticas van a ser compartidas con todos los objetos
 	static Scanner sc = null;
-	static ArrayList<Perro> lista = new ArrayList<Perro>();
+	//static ArrayList<Perro> lista = new ArrayList<Perro>();
+	static private PerroDAOSqlite dao = new PerroDAOSqlite();
 	static String opcion = "";   // opcion seleccionada en el menu por el usuario
 	
 	// constantes
@@ -36,7 +40,7 @@ public class AppPerrera {
 		sc = new Scanner(System.in);
 		boolean salir = false;
 
-		inicializarDatos();
+		//inicializarDatos();
 		
 		
 		do {
@@ -54,9 +58,9 @@ public class AppPerrera {
 				baja();
 				break;
 			case OP_MOSTRAR:
-				System.out.println("Introduce el nombre del perro:");
-				String nombrePerro = sc.nextLine();
-				mostrar(nombrePerro);
+				System.out.println("Introduce el id del perro:");
+				int idPerro = Integer.parseInt(sc.nextLine());
+				mostrar(idPerro);
 				break;
 			case OP_MODIFICACION:
 				modificacion();
@@ -87,7 +91,8 @@ public class AppPerrera {
 
 	private static void listar() {
 		
-		for (Perro perro : lista) {
+		ArrayList<Perro> perros = dao.listar();
+		for (Perro perro : perros) {
 			//TODO dar formato para mostrar solo nombre y raza
 			//System.out.println(perro);
 			System.out.println( String.format("%31s [%s]  %s Kg", perro.getNombre(), perro.getRaza(), perro.getPeso()  ));
@@ -100,14 +105,14 @@ public class AppPerrera {
 	 * Inicializar el ArrayList para simular que existen perros.<br>
 	 * En un futuro nos conectaremos a una bbdd
 	 */
-	private static void inicializarDatos() {
+	/*private static void inicializarDatos() {
 		
 		lista.add( new Perro("Scubby Doo") );
 		lista.add( new Perro("Niebla") );
 		lista.add( new Perro("Pequeno ayudante de Santa Claus") );
 		lista.add( new Perro("Goofy") );
 		
-	}
+	}*/
 
 
 	/**
@@ -118,13 +123,13 @@ public class AppPerrera {
 	private static void crearMenu() {
 	
 		System.out.println("************************************");
-		System.out.println(" 1.- Listado de perros");
-		System.out.println(" 2.- Alta de un perro");
-		System.out.println(" 3.- Baja de un perro");
-		System.out.println(" 4.- Mostrar datos de un perro");
-		System.out.println(" 5.- Modificacion de datos de un perro");
+		System.out.println(" "+ OP_LISTAR + ".- Listado de perros");
+		System.out.println(" "+ OP_ALTA + ".- Alta de un perro");
+		System.out.println(" "+ OP_BAJA + ".- Baja de un perro");
+		System.out.println(" "+ OP_MOSTRAR + ".- Mostrar datos de un perro");
+		System.out.println(" "+ OP_MODIFICACION + ".- Modificacion de datos de un perro");
 		System.out.println(" ");
-		System.out.println(" S - Salir");
+		System.out.println(" "+ OP_SALIR + " - Salir");
 		System.out.println("************************************");
 		
 		System.out.println("\n Selecciona una opcion del menu:");
@@ -137,13 +142,13 @@ public class AppPerrera {
 	private static void crearMenuModificacion() {
 		
 		System.out.println("************************************");
-		System.out.println(" 1.- Modificar nombre");
-		System.out.println(" 2.- Modificar raza");
-		System.out.println(" 3.- Modificar peso");
-		System.out.println(" 4.- Modificar vacunacion");
-		System.out.println(" 5.- Modificar historia");
+		System.out.println(" "+ OP_NOMBRE + ".- Modificar nombre");
+		System.out.println(" "+ OP_RAZA + ".- Modificar raza");
+		System.out.println(" "+ OP_PESO + ".- Modificar peso");
+		System.out.println(" "+ OP_VACUNACION + ".- Modificar vacunacion");
+		System.out.println(" "+ OP_HISTORIA + ".- Modificar historia");
 		System.out.println(" ");
-		System.out.println(" S - Salir");
+		System.out.println(" "+ OP_SALIR + " - Salir");
 		System.out.println("************************************");
 		
 		System.out.println("\n Selecciona una opcion del menu:");
@@ -152,24 +157,54 @@ public class AppPerrera {
 	}
 	//Aniadir un perro
 	private static void alta() {
+		
+		boolean repetir = true;
+		
 		Perro perro = new Perro();
+		
 		System.out.println("Introduce el nombre del nuevo perro:");
 		perro.setNombre(sc.nextLine());
 		
 		System.out.println("Introduce la raza del nuevo perro:");
 		perro.setRaza(sc.nextLine());
 		
-		System.out.println("Introduce el peso del nuevo perro:");
-		perro.setPeso(Float.parseFloat(sc.nextLine()));
+		//Controlo que el peso del perro sea un numero entero
+		do {
+			try{
+				System.out.println("Introduce el peso del nuevo perro:");
+				perro.setPeso(Float.parseFloat(sc.nextLine()));
+				repetir = false;
+			} catch(Exception e) {
+				System.out.println("El peso debe ser un núnmero entero. Vuelva a introducirlo");
+				repetir = true;
+			}
+		}while (repetir);
 		
 		//TODO controlar que meta "S" o "N"
-		System.out.println("El perro esta vacunado (s/n)?:");
-		perro.setVacunado(Boolean.parseBoolean(sc.nextLine()));
+		do {
+			try{
+				System.out.println("El perro esta vacunado (s/n)?:");
+				perro.setVacunado(Boolean.parseBoolean(sc.nextLine()));
+				repetir = false;
+			} catch(Exception e) {
+				System.out.println("Vacunado debe ser un valor booleano2. Vuelva a introducirlo");
+				repetir = true;
+			}
+		}while (repetir);
+		
 		
 		System.out.println("Introduce la historia del nuevo perro:");
 		perro.setHistoria(sc.nextLine());
 		
-		lista.add(perro);
+		//lista.add(perro);
+		//ArrayList<Perro> perros = modelo.listar();
+		//ArrayList<Perro> perros = modelo.crear(perro);
+		try {
+			dao.crear(perro);
+			
+		}catch (Exception e) {
+			System.out.printf("** el nombre del perro %s ya existe \n",perro.getNombre());
+		}
 		
 		
 	}
@@ -178,59 +213,51 @@ public class AppPerrera {
 	private static void baja() {
 		//TODO poder elegir entre dar de baja por nombre o por posicion dentro de la lista
 		String nombrePerro = " ";
+		int idPerro = 0;
 		String borrar = "S";
 		
-		System.out.println("Introduce el nombre del perro que desea dar de baja");
-		nombrePerro = sc.nextLine();
 		
+		System.out.println("Introduce el ID del perro que desea dar de baja:");
+		idPerro = Integer.parseInt(sc.nextLine());
 		
-		//Para borrar un perro de la lista
-		for (int i = 0; i < lista.size() ; i++) {
-			
-			Perro perro = lista.get(i);
-			
-			if ( nombrePerro.equals(perro.getNombre()) ) {
-				System.out.println("Datos del perro que desea dar de baja");
-				System.out.println("=====================================");
-				System.out.println( String.format("%s [%s]  %s Kg", perro.getNombre(), perro.getRaza(), perro.getPeso()  ));
-				System.out.println(" ");
+		try {
+			System.out.println("Datos del perro que desea dar de baja");
+			System.out.println("=====================================");
+			mostrar(idPerro);
+			System.out.println(" ");
 				
-				//Pido confirmacion de la baja
-				do {
-					System.out.println("Esta seguro de que quiere dar de baja a " + nombrePerro + " ? (S/N)");
-					borrar = sc.nextLine();
-				}while((!borrar.equalsIgnoreCase("s")) && (!borrar.equalsIgnoreCase("n")));
+			//Pido confirmacion de la baja
+			do {
+				System.out.println("Esta seguro de que quiere dar de baja al perro con el ID " + idPerro + " ? (S/N)");
+				borrar = sc.nextLine();
+			}while((!borrar.equalsIgnoreCase("s")) && (!borrar.equalsIgnoreCase("n")));
 				
-				if (borrar.equalsIgnoreCase("s")){
-					lista.remove(i);
-				}
-				break; // salir del for
+			if (borrar.equalsIgnoreCase("s")){
+				dao.eliminar(idPerro);
 			}
-			
+		}catch (Exception e) {
+			System.out.println("No existe un perro con el ID " + idPerro);
 		}
+
 		
 	}
 	
 	//Mostrar los datos de un perro
-	private static boolean mostrar(String nombre) {
+	private static boolean mostrar(int id) {
 		
 		boolean existe = false;
-		int i = 0;
-		do {
-			Perro perro = lista.get(i);
 			
-			if (perro.getNombre().equalsIgnoreCase(nombre)) {
-				System.out.println( String.format("%31s [%s]  %s Kg", perro.getNombre(), perro.getRaza(), perro.getPeso()  ));
-				existe = true;
-				//return true;
-			}
-			i++;
-		}while((!existe) && ( i < lista.size()));
-		
-		if (!existe) {
-			System.out.println ("No tenemos datos de ese perro");
-			//return false;
+		try {
+			Perro perro = dao.recuperar(id);
+			System.out.println( String.format("%31s [%s]  %s Kg", perro.getNombre(), perro.getRaza(), perro.getPeso()  ));
+			existe = true;
+			
+			
+		}catch (Exception e) {
+			System.out.println("El perro con el id " + id +" no existe.");//
+			existe = false;
 		}
+
 		
 		return existe;
 	}	
@@ -239,28 +266,66 @@ public class AppPerrera {
 	//Modificar los datos de un perro
 	//TODO modificacion
 	private static void modificacion() {
-		System.out.println("Introduce el nombre del perro que desea modificar:");
-		String nombrePerro = sc.nextLine();
-		if(mostrar(nombrePerro)) {
+		
+		boolean repetir = true;
+		//String nombrePerro = s;c.nextLine();
+		
+		System.out.println("Introduce el id del perro que desea modificar:");
+		int idPerro = Integer.parseInt(sc.nextLine());
+		/*do {
+			try {
+				System.out.println("Introduce el id del perro que desea modificar:");
+				int idPerro = Integer.parseInt(sc.nextLine());
+				repetir = false;
+			}catch (Exception e) {
+				repetir = true;
+			}
+		}while(repetir);*/
+		
+		if(mostrar(idPerro)) {
+			Perro perro = new Perro();
+			perro = dao.recuperar(idPerro);
+			
 			
 			do {
 				crearMenuModificacion();
 			
 				switch (opcion) {
 				case OP_NOMBRE:
-					System.out.println("Modificar nombre");
+					System.out.println("Introduzca el nuevo nombre: ");
+					perro.setNombre(sc.nextLine());
 					break;
 				case OP_RAZA:
-					System.out.println("Modificar raza");
+					System.out.println("Introduzca la nueva raza: ");
+					perro.setRaza(sc.nextLine());
 					break;	
 				case OP_PESO:
-					System.out.println("Modificar peso");
+					do {
+						try {
+							System.out.println("Introduzca el nuevo peso");
+							perro.setPeso(Float.parseFloat(sc.nextLine()));
+							repetir = false;
+						}catch (Exception e) {
+							System.out.println("El peso debe ser un numero. Vuelva a introducirlo");
+							repetir = true;
+						}
+					} while(repetir);
 					break;
 				case OP_VACUNACION:
-					System.out.println("Modificar vacunacion");
+					do {
+						try {
+							System.out.println("Introduzca el nuevo valor de vacunación");
+							perro.setVacunado(Boolean.parseBoolean(sc.nextLine()));
+							repetir = false;
+						}catch (Exception e) {
+							System.out.println("La vacunacion es un valor booleano. Vuelva a introducirla");
+							repetir = true;
+						}
+					} while(repetir);
 					break;
 				case OP_HISTORIA:
-					System.out.println("Modificar historia");
+					System.out.println("Modificar la historia: ");
+					perro.setRaza(sc.nextLine());
 					break;
 				case OP_SALIR:
 					crearMenu();
@@ -270,7 +335,17 @@ public class AppPerrera {
 					System.out.println("Escoge una opcion correcta");
 				}
 			}while(!OP_SALIR.equalsIgnoreCase(opcion));
+			try {
+				dao.modificar(perro);
+			}catch(Exception e) {
+				System.out.println("Alguno de los datos no es valido. Vuelva a introducirlos");
+				modificacion();
+			}
 		}
+		
+		
 	}
+	
+
 
 }// AppPerrera
