@@ -3,7 +3,7 @@
  * SQLite es un sistema de gestión de bases de datos relacional compatible con ACID, contenida en una relativamente pequeña (~275 kiB)2​ biblioteca escrita en C. SQLite es un proyecto de dominio público1​ creado por D. Richard Hipp.<br>
 *  A diferencia de los sistema de gestión de bases de datos cliente-servidor, el motor de SQLite no es un proceso independiente con el que el programa principal se comunica.<br>
 *  <a href="https://www.sqlite.org/index.html" target="_blank">Pagina Oficial</a>
-*  <h2>Pasos de instalación</h2>
+*  <h2>Pasos de instalaci�n</h2>
 *  <ol>
 *  	  <li>Descargar DDLs y Tools para el SO nuestro</li>
 *     <li>Descomprimir en carpeta c:/sqlite</li>

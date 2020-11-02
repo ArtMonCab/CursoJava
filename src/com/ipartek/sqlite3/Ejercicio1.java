@@ -6,12 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-import com.ipartek.ejercicios.interfaces.app.Patinete;
+import com.ipartek.pojo.Patinete;
+
 
 public class Ejercicio1 {
 
 	public static void main(String[] args) throws Exception {
-
+		Patinete patin = new Patinete();
 		String sql = "SELECT * FROM coche ORDER BY nombre ASC;";
 
 		// Todo lo que metamos dentro de los () del try se cierra automaticamente al
@@ -20,7 +21,8 @@ public class Ejercicio1 {
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:ddbb/concesionario.db");
 				PreparedStatement pst = conn.prepareStatement(sql);
 				ResultSet rs = pst.executeQuery();
-				Patinete patin = new Patinete();
+				//
+				
 				) {
 
 			while (rs.next()) {
