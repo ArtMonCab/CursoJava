@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.ipartek.modelo.PerroDAOSqlite;
-//import com.ipartek.modelo.PerroDao;
+import com.ipartek.modelo.PerroDAOArrayList;
+import com.ipartek.modelo.PerroDao;
 import com.ipartek.pojo.Perro;
 
 public class AppPerrera {
@@ -12,8 +13,13 @@ public class AppPerrera {
 	// variables globales para esta Clase
 	//Las variabes estaticas van a ser compartidas con todos los objetos
 	static Scanner sc = null;
-	//static ArrayList<Perro> lista = new ArrayList<Perro>();
-	static private PerroDAOSqlite dao = new PerroDAOSqlite();
+	
+	// cuando usamos un patron singleton, el constructor es privado
+	// deberemos usar el metodo getInstance();
+	//static private PerroDAOSqlite dao = new PerroDAOSqlite();
+	//static private PerroDao modelo = PerroDAOSqlite.getInstance();
+	static private PerroDao modelo = PerroDAOArrayList.getInstance();
+	
 	static String opcion = "";   // opcion seleccionada en el menu por el usuario
 	
 	// constantes
@@ -91,7 +97,7 @@ public class AppPerrera {
 
 	private static void listar() {
 		
-		ArrayList<Perro> perros = dao.listar();
+		ArrayList<Perro> perros = modelo.listar();
 		for (Perro perro : perros) {
 			System.out.println(String.format("%3s %-15s %-15s  %4s Kg  %13s %s", perro.getId(), perro.getNombre(), perro.getRaza(),
 					perro.getPeso(), (perro.isVacunado()) ? "vacunado" : "*Sin Vacunar*", perro.getHistoria()));
@@ -166,7 +172,7 @@ public class AppPerrera {
 		String nombrePerro = sc.nextLine();
 		
 		
-		System.out.println("Introduce la raza del nuevo perro (Valor por defecto 'cruce':");
+		System.out.println("Introduce la raza del nuevo perro (Valor por defecto 'cruce'):");
 		String razaPerro = sc.nextLine();
 		
 		//Controlo que el peso del perro sea un numero
@@ -211,7 +217,7 @@ public class AppPerrera {
 		repetir = true;
 		do {
 			try {
-				dao.crear(perroNuevo);
+				modelo.crear(perroNuevo);
 				System.out.println("Perro guardado");
 				System.out.println(perroNuevo);
 				repetir = false;
@@ -250,7 +256,7 @@ public class AppPerrera {
 				System.out.println("");
 				System.out.println("Datos del perro que desea dar de baja");
 				System.out.println("=====================================");
-				perroBorrar = dao.recuperar(idPerro);
+				perroBorrar = modelo.recuperar(idPerro);
 				System.out.println(perroBorrar);
 				System.out.println(" ");
 				repetir = false;
@@ -277,7 +283,7 @@ public class AppPerrera {
 				if ( perroBorrar.getNombre().equalsIgnoreCase(nombre)) {
 					
 					try {
-						dao.eliminar(idPerro);
+						modelo.eliminar(idPerro);
 						repetir= false;
 						System.out.println("Hemos dado de baja al perro");
 						
@@ -301,7 +307,7 @@ public class AppPerrera {
 		boolean existe = false;
 			
 		try {
-			Perro perro = dao.recuperar(id);
+			Perro perro = modelo.recuperar(id);
 			//System.out.println( String.format("%31s [%s]  %s Kg", perro.getNombre(), perro.getRaza(), perro.getPeso()  ));
 			System.out.println(String.format("%15s [%s]  %4s Kg  %13s %s", perro.getNombre(), perro.getRaza(), perro.getPeso(), (perro.isVacunado()) ? "vacunado" : "*Sin Vacunar*", perro.getHistoria()));	
 			existe = true;
@@ -328,7 +334,7 @@ public class AppPerrera {
 		
 		if(mostrar(idPerro)) {
 			Perro perro = new Perro();
-			perro = dao.recuperar(idPerro);
+			perro = modelo.recuperar(idPerro);
 			
 			
 			do {
@@ -373,7 +379,7 @@ public class AppPerrera {
 					break;
 				case OP_SALIR:
 					try {
-						dao.modificar(perro);
+						modelo.modificar(perro);
 					}catch(Exception e) {
 						System.out.println("Alguno de los datos no es valido. Vuelva a introducirlos");
 						modificacion();
