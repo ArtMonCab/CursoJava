@@ -57,7 +57,6 @@ public class Ejercicio2 {
 			
 		}// for
 		
-		//TODO calcular media con 2 decimales-->HECHO
 		double mediaSemana = sumatorioSemana /temperaturaSemana.length;
 		//El % es  una variable
 		System.out.printf( "Media de la semana es %.2f ", mediaSemana );

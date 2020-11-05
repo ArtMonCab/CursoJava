@@ -37,7 +37,6 @@ public class PerroDAOArrayList implements PerroDao {
 
 	@Override
 	public Perro recuperar(int id) {
-		// TODO Auto-generated method stub
 		Perro perro = null;
 		
 		

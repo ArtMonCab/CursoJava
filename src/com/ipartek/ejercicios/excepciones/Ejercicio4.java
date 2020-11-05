@@ -32,7 +32,6 @@ public class Ejercicio4 {
 		// Lo que aparece entre <> se llama CASTEAR y sirve para indicar el tipo de Objetos que tenemos dentro del Array
 		ArrayList<Persona> personas = new ArrayList<Persona>();
 		
-		//TODO introducir el número de personas que yo quiera
 		System.out.println("Introduce el número de personas que quieres introducir:");
 		contador = Integer.parseInt(sc.nextLine());
 		System.out.println(contador);	

@@ -1,4 +1,4 @@
-package com.ipartek.actividades;
+package mf0227.uf2404.actividad1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -74,7 +74,6 @@ public class EjercicioPractico1B {
 		System.out.println("************************************");
 		
 		System.out.println("\n Selecciona una opcion del menu:");
-		//TODO gestionar errores
 		opcion = sc.nextLine();
 		
 		

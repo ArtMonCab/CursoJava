@@ -51,7 +51,6 @@ public class Ejercicio4 {
 	
 	
 	private static void crearBaraja() {
-		// TODO Auto-generated method stub
 		
 		for (int palo = 0 ; palo < PALOS_NOMBRES.length ; palo++) {
 			

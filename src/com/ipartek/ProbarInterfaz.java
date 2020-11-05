@@ -33,7 +33,6 @@ public class ProbarInterfaz  {
 		Utilidades util = new Utilidades();
 		
 		// descomentar par probar los metodos
-		// TODO mirar porque falla sacnner al probar los dos metodos seguidos
 		/*  
 		try {
 			String nombre = util.pedirNombre();

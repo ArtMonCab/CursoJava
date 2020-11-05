@@ -1,4 +1,4 @@
-package com.ipartek.actividades;
+package mf0227.uf2404.actividad1;
 
 /**
  * Realizar un programa en java que realice la siguiente función: Crear un array de 5 notas que<br>

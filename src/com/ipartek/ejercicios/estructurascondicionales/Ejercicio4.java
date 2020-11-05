@@ -50,7 +50,6 @@ public class Ejercicio4 {
 			opcion = Character.toUpperCase(sc.nextLine().charAt(0));
 			centinela = true;
 			
-		//TODO hacer los calculos	
 		}while (opcion != 'A' && opcion != 'B' && opcion != 'C' && opcion != 'D');
 		
 		if (opcion == 'A') {

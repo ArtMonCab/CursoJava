@@ -20,7 +20,6 @@ package com.ipartek.ejercicios.excepciones;
 public class Ejercicio6 {
 	//Todo dejar para más adelante
 	public static void main(String[] args) {
-		//TODO Ejercicio 6
 		int altura = 0;
 		int peso = 0;
 		boolean piesPlanos = false;

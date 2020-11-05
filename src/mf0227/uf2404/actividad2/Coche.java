@@ -18,7 +18,6 @@ public class Coche extends Vehiculo {
 	//Connstructores
 	public Coche() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	

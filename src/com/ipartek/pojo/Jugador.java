@@ -5,7 +5,7 @@ public class Jugador {
 	// Atributos, deben ser siempre privados
 	// la forma de manipular estos atributos es a traves de los getteres y settres
 	///////////////////////////////////////
-	private int id;  //TODO getter setreers y contructor toString
+	private int id;  
 	private String nombre;
 	private int dorsal;
 

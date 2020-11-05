@@ -9,7 +9,6 @@ public class Carta {
 
 	public Carta() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	

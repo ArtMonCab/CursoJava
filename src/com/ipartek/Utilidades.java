@@ -80,7 +80,6 @@ public class Utilidades implements IFunciones{
 			break;
 
 		default:
-			//TODO que no salga este mensaje cuando le doy a la opcion de salir.
 			//if (!salir) {
 				throw new Exception("Ese tipo de loteria no existe");
 			//}
