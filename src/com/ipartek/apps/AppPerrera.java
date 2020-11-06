@@ -17,8 +17,8 @@ public class AppPerrera {
 	// cuando usamos un patron singleton, el constructor es privado
 	// deberemos usar el metodo getInstance();
 	//static private PerroDAOSqlite dao = new PerroDAOSqlite();
-	//static private PerroDao modelo = PerroDAOSqlite.getInstance();
-	static private PerroDao modelo = PerroDAOArrayList.getInstance();
+	static private PerroDao modelo = PerroDAOSqlite.getInstance();
+	//static private PerroDao modelo = PerroDAOArrayList.getInstance();
 	
 	static String opcion = "";   // opcion seleccionada en el menu por el usuario
 	

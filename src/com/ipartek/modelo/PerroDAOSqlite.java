@@ -35,6 +35,7 @@ public class PerroDAOSqlite implements PerroDao {
 				PreparedStatement pst = conn.prepareStatement(SQL);
 				ResultSet rs = pst.executeQuery();) {
 
+				
 			while (rs.next()) {
 				
 				Perro p = new Perro();
@@ -73,6 +74,8 @@ public class PerroDAOSqlite implements PerroDao {
 			) {
 			
 			pst.setInt(1, id); // sustituimos el ? de la SQL por el parametro id
+			
+			System.out.println(pst);
 			
 			try( ResultSet rs = pst.executeQuery() ){
 				if (rs.next()) {
