@@ -1,0 +1,224 @@
+ul,ul li{
+    margin:0;
+    padding:0;
+    list-style:none
+}
+
+h1,h2,h3,p,form{
+    margin:0;padding:0
+}
+
+.clear{
+    clear:both
+}
+
+img{
+    border:none
+}
+
+#contenedor{
+    width:90%;
+    max-width:900px;
+    width:expression(document.body.clientWidth > 901? "900px":"auto");
+    margin:0 auto
+}
+
+/*margin:0 auto}*/
+
+#cabecera,#menu,#lateral,#contenido,#contenido #principal,#contenido #secundario,#pie{
+    border:2px solid #777
+}
+
+#cabecera{
+    clear:both
+}
+    
+#menu{
+    clear:both
+}
+
+#lateral{
+    float:left;
+    width:20%
+}
+    
+#contenido{
+    float:right;
+    width:78%
+}
+
+#contenido #principal{
+    float:left;
+    width:78%
+}
+
+#contenido #secundario{
+    float:right;
+    width:20%
+}
+
+#pie{
+    clear:both
+}
+
+#cabecera #logo{
+    float:left
+}
+
+#cabecera #buscador{
+    float:right
+}
+
+#menu ul#menu_principal li{
+    display:inline;
+    float:left
+}
+
+#contenido #principal .articulo img{width:100px;float:left}
+#pie .enlaces{
+    float:left
+}
+
+#pie .copyright{
+    float:right
+}
+
+#cabecera,#menu,#lateral,#lateral #noticias,#lateral #publicidad,#contenido,#contenido #principal,#contenido #secundario,#pie{
+    padding:.5em;border:none
+}
+
+#lateral{
+    padding:0
+}
+
+#cabecera{
+    padding:1em
+}
+
+#cabecera h1{
+    background:url(../comun/imagenes/logo.gif) no-repeat -5px -10px
+}
+
+#cabecera h1 span{
+    visibility:hidden
+}
+
+#menu{
+    margin-bottom:.5em;
+    border-bottom:1px solid #004c99;
+    background:url(../comun/imagenes/fondo_menu.gif) repeat-x}
+
+#contenido{
+    width:77%;padding:0
+}
+
+#contenido #principal{
+    width:73%
+}
+
+#contenido #secundario{
+    border:1px solid #c60
+}
+
+#contenido #secundario h2{
+    background:#db905c;
+    padding:.2em
+}
+
+#pie{
+    padding:.5em 0;
+    margin-top:1em;
+    border-top:1px solid #c5c5c5;
+    border-bottom:1px solid #c5c5c5;
+    background:#f8f8f8
+}
+
+#contenido #principal .articulo{
+    margin-bottom:1em
+}
+
+#contenido #principal .articulo img{
+    margin:.5em
+}
+
+#lateral #noticias{
+    border:1px solid #c5c5c5;
+    background:#f8f8f8
+}
+
+#lateral #publicidad{
+    margin-top:1em;
+    border:1px dashed #c60;
+    background:#fff6cd
+}
+
+/*La fuente base de la página debe ser: color negro, tipo Arial, tamaño 0.9em, interlineado 1.4.*/
+*{
+    font-family: Arial;
+    font-size: 0.9em;
+    line-height : 1.4em;
+}
+
+/*Los elementos <h2> de .articulo se muestran en color #CC6600, con un tamaño de letra de 1.6em, */ 
+/*un interlineado de 1.2 y un margen inferior de 0.3em.*/
+.articulo h2{
+    color: #CC6600;
+    font-size: 1.6em;
+    line-height: 1.2em;
+    margin-bottom: 0.3em;
+}
+
+/*Los elementos del #menu deben mostrar un margen a su derecha de 1em y los enlaces deben ser de color blanco */
+/*y tamaño de letra 1.3em.*/
+#menu{
+    margin-right: 1em;
+    font-size: 1.3em;
+    
+}
+
+#menu a{
+    color: white;
+}
+
+/*El tamaño del texto de todos los contenidos de #lateral debe ser de 0.9em. La fecha de cada noticia debe ocupar */
+/*el espacio de toda su línea y mostrarse en color gris claro #999. El elemento <h3> de #noticias debe mostrarse de color #003366.*/
+#lateral{
+    background-color: #999;
+
+}
+
+#lateral h3{
+    color: #003366
+}
+
+/*El texto del elemento #publicidad es de color gris oscuro #555 y todos los enlaces de color #CC6600.*/
+#publicidad{
+    color: #555;
+}
+
+#publicidad a{
+    color:#CC6600;
+}
+
+/*Los enlaces contenidos dentro de .articulo son de color #CC6600 y todos los párrafos muestran un margen superior e inferior de 0.3em.*/
+.articulo a{
+    color:#CC6600;
+}
+
+.articulo p{
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+/*Añadir las reglas necesarias para que el contenido de #secundario se vea como en la imagen que se muestra.*/
+#secundario h2{
+    color:white;
+    padding-top: 1em;
+    
+}
+
+#secundario p{
+    margin-top: 1em;
+    
+}
+/*Añadir las reglas necesarias para que el contenido de #pie se vea como en la imagen que se muestra.*/

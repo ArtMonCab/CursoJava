@@ -1,80 +1,135 @@
 /* Nuestra hoja de estilos */
 
 
-@import 'reset.css';
+* { 
+    margin: 0;
+    padding: 0;
+}
 
 
-/* variables globales */
+/* varibales globales */
 :root {
-
+    --color-primary : #ec1d24;
+    --color-accent :#f7c671;
+    --color-fondo :#f7f7f7;
+    --azul: #003580;
     --blanco: #FFF;
-    --negro: #000;
+    --negro: #202020;
     --marron: peru;
     --verde: lime;
     --rosa: pink;
 }
 
-/* media para impresoras, tambien se puede declara en el html con un link */
+/* estilos a todas las etiquetas */
 
-@media print {
-
-    body { 
-        font-size: 10pt;
-        color: green;
-    }
-
-}
-
-
-header {
-    /* prefijos para dar soporte a diferentes navegadorescontent: 
-        -moz- para Firefox y los demás navegadores de Gecko,
-        -webkit- para los navegadores WebKit: Chrome, Safari, etc.
-        -ms- para Microsoft (Internet Explorer),
-        -o- para Presto, el antiguo motor de Opera.
-    
-    */    
-    background-image: -moz-linear-gradient(top, #D7D 0%, #068 100%); 
-    background-image: -o-linear-gradient(top, #D7D 0%, #068 100%);  
-    background-image: -ms-linear-gradient(top, #D7D 0%, #068 100%); 
-    background-image: -webkit-linear-gradient(top, #D7D 0%, #068 100%); 
-    background-image: linear-gradient(top, #D7D 0%, #068 100%);
-    color: var(--blanco);
-
-}
-
-
-section {
-    background-color: var(--verde);
-}
-
-footer {
-    background-color: var(--rosa);
-}
-
-h1 {
+body {
     color: var(--negro);
+    font-size: 1rem; /* 16px */
+    line-height: 1.3rem;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    box-sizing: border-box;
+}
+
+
+h1 {   
     text-align: center;
     text-transform: capitalize;
+    margin: 1rem 0;
+    color:white;
+}
+h2, h3, h4, h5, h6 {
+    margin: 1rem 0;
+    color: var(--color-primary);
 }
 
-#lista {
-    font-family:Arial;
-    font-weight:bold;
-    font-size:13px;
+p {
+    margin: 1rem 0;
 }
 
-#lista li {
-    display:inline;
-    padding-left:3px;
-    padding-right:3px;
-
+a {
+    text-decoration: none; /* quitar rayita de abajo al los enlaces */
+    cursor: pointer;  /* cambiar icono de flecha a mano */
 }
 
-table{
+li {
+    list-style: none;
+}
+
+
+header, main, footer, .container {
+    max-width: 1024px;
+    box-sizing: border-box;  /* si tenemos padding o border lo descuenta del ancho, no los suma */
+    margin: auto; /* centrar el contenido en horizontal */
+}
+
+header {
+    margin-top: 0px;
+    background-color:var(--negro);
+}
+
+
+main {
+    background-color: var(--color-fondo);
+    padding: 1rem;
+}
+
+#header {
+    background-color: var(--color-primary);
+    color: #FFF;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+}
+
+#header a { 
+    color: #FFF; 
+}
+
+#header ul {
+
+    /* posicionar los LIs en horizontal y dividir el spacio */
+    display: flex;
+    justify-content: space-between;
+}    
+
+#header ul li {
+    list-style: none; /* quitar puntito */    
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+}   
+
+#headerul li:hover {
+    background-color: #03A9F4;
+}    
+
+footer {
+    background: #f7f7f7;
+    padding: 1rem;
+    display: flex;
+}
+
+
+footer section {
     width: 100%;
 }
 
-td{
-    align-content: center;
+footer a{
+    color: #6f777b;
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.text-right {
+    text-align: right;
+}
+
+#logos{
+    display: flex;
 }
