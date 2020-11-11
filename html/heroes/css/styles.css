@@ -125,6 +125,7 @@ footer {
     background: #f7f7f7;
     padding: 1rem;
     display: flex;
+    
 }
 
 
@@ -149,6 +150,8 @@ footer a{
 }
 
 .logos{
+    display: flex;
+    justify-content: space-around;
     box-sizing: border-box;  /* si tenemos padding o border lo descuenta del ancho, no los suma */
     margin: auto;
 }
