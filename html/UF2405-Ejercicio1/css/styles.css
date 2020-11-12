@@ -1,3 +1,6 @@
+body{
+    min-width: 185px;
+}
 
 nav {
     background-color:grey;
@@ -10,6 +13,7 @@ nav {
 nav a { 
     text-decoration: none; /* quitar rayita de abajo al los enlaces */
     cursor: pointer;  /* cambiar icono de flecha a mano */
+    color:black;
 }
 
 nav ul {
@@ -20,7 +24,6 @@ nav ul {
     max-width: 1024px;
     box-sizing: border-box;  /* si tenemos padding o border lo descuenta del ancho, no los suma */
     margin: auto; /* centrar el contenido en horizontal */
-    justify-content: space-between;
 }  
 
 nav ul li{
@@ -29,6 +32,7 @@ nav ul li{
     text-align: center;
     padding: 5px 0;
     font-size: larger;
+    Color:black;
 }  
 
 header h1 {   
@@ -59,6 +63,9 @@ footer {
     background-color: gray;
 }
 
+footer a{
+    color:black;
+}
 main a h3{
     text-align: left;
 }
@@ -68,11 +75,54 @@ img{
     margin: auto;
     width: 640px;
     height: auto;
-    padding:1em;
+    padding:2em;
 
 }
 
+p{
+    text-align: justify;
+}
+   
 
+a:hover {
+    background-color: black;
+    color:white;
+}
 
+@media (max-width: 768px) {
+
+    img{
+        display: flex;
+        margin: auto;
+        width: 100%;
+        height: auto;
+        padding:0.1em;
+
+        
+      object-fit: cover;
+      object-position: center center;
+    
+    }
+  
+    
+} 
+
+@media (max-width: 425px) {
+
+    nav ul {
+
+      
+        display: block;
+        box-sizing: border-box;  /* si tenemos padding o border lo descuenta del ancho, no los suma */
+        margin: auto; /* centrar el contenido en horizontal */
+        padding: 0.1em;
+    }    
+
+    h1, h2{
+        font-size: medium;
+        padding: 0.1em;
+    }
+
+}
 
 
