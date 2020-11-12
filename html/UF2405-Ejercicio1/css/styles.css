@@ -1,0 +1,78 @@
+
+nav {
+    background-color:grey;
+    color: #000;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+}
+
+nav a { 
+    text-decoration: none; /* quitar rayita de abajo al los enlaces */
+    cursor: pointer;  /* cambiar icono de flecha a mano */
+}
+
+nav ul {
+
+    /* posicionar los LIs en horizontal y dividir el spacio */
+    display: flex;
+    justify-content: space-between;
+    max-width: 1024px;
+    box-sizing: border-box;  /* si tenemos padding o border lo descuenta del ancho, no los suma */
+    margin: auto; /* centrar el contenido en horizontal */
+    justify-content: space-between;
+}  
+
+nav ul li{
+    list-style: none; /* quitar puntito */    
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    font-size: larger;
+}  
+
+header h1 {   
+    text-align: center;
+    text-transform: capitalize;
+    padding: 1em;
+    color:white;
+    text-align: center;
+    background-color: black;
+    
+}
+
+main{
+    background-color: lightgray;
+    padding: 2em;
+}
+main h1 {   
+    text-align: center;
+    text-transform: capitalize;
+    padding: 1em;
+    background-color: gray;
+    text-align: center;
+    
+}
+
+footer {
+    text-align: center; 
+    background-color: gray;
+}
+
+main a h3{
+    text-align: left;
+}
+
+img{
+    display: block;
+    margin: auto;
+    width: 640px;
+    height: auto;
+    padding:1em;
+
+}
+
+
+
+
+
