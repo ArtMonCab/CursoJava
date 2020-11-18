@@ -81,7 +81,11 @@ public class PerroDAOSqlite implements PerroDao {
 				if (rs.next()) {
 					perro = new Perro();
 					perro.setId(rs.getInt("id"));
-					perro.setNombre(rs.getString("nombre"));					
+					perro.setNombre(rs.getString("nombre"));	
+					perro.setRaza(rs.getString("raza"));
+					perro.setPeso(rs.getFloat("peso"));
+					perro.setVacunado(rs.getBoolean("vacunado"));
+					perro.setHistoria(rs.getString("historia"));
 				}// while
 			}// 2º try
 			
